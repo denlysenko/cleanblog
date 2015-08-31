@@ -1,0 +1,24 @@
+<form action="/user/edit/<%= user.id %>" method="post" class="col-md-8">
+	<div class="form-group">
+		<label for="username">Username</label>
+		<input type="text" id="username" class="form-control" name="username" placeholder="Username..." value="<%= user.username %>">
+	</div>
+	<div class="form-group">
+		<label for="password">Password</label>
+		<input type="password" name="password" class="form-control" placeholder="Password...">
+	</div>
+	<div class="form-group">
+		<label for="confirmation">Password Confirmation</label>
+		<input type="password" name="confirmation" class="form-control" placeholder="Confirm Password...">
+	</div>
+	<div class="form-group">
+		<% if(user.admin) { %>
+			<label><input type="checkbox" name="admin" checked> Admin</label>
+		<% } else { %>
+			<label><input type="checkbox" name="admin"> Admin</label>
+		<% } %>		
+	</div>
+	<div class="form-group">
+		<button type="submit" class="btn btn-primary">Save</button>
+	</div>
+</form>

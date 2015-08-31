@@ -1,0 +1,24 @@
+<table class="table table-striped table-bordered">
+	<thead>
+		<tr>
+			<th>Date</th>
+			<th>Author</th>
+			<th>Title</th>
+			<th></th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		<% if(posts && posts.length) { %>
+		<% _.each(posts, function(post) { %>
+			<tr>
+				<td><%= moment(post.updateddAt).format('Do MMM YYYY') %></td>
+				<td><%= post.author %></td>
+				<td><%= post.title %></td>
+				<td><a href="/private/edit/<%= post.id %>" class="btn btn-xs btn-warning" role="button">Edit</a></td>
+				<td><a href="/private/post/<%= post.id %>/destroy" class="btn btn-xs btn-danger" role="button" data-action="remove">Delete</a></td>
+			</tr>
+		<% })} %>	
+	</tbody>
+</table>
+<a href="/private/post/new" class="btn btn-primary" role="button" data-action="add">Add New Post</a>

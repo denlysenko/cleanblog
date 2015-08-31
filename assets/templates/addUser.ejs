@@ -1,0 +1,21 @@
+<tr data-user-id="<%= user.id %>">
+	<td><%= user.username %></td>
+	<td style="text-align:center;" class="status">
+		<% if(user.online) { %>
+			<i class="glyphicon glyphicon-ok"></i>
+		<% } else { %>
+			<i class="glyphicon glyphicon-remove"></i>	
+		<% } %>	
+	</td>
+	<td style="text-align:center;">
+		<% if(user.admin) { %>
+			<i class="glyphicon glyphicon-king"></i>
+		<% } else { %>
+			<i class="glyphicon glyphicon-pawn"></i>	
+		<% } %>	
+	</td>
+	<td>
+		<a href="/user/edit/<%= user.id %>" class="btn btn-xs btn-warning" role="button">Edit</a>
+		<a href="/user/destroy/<%= user.id %>" class="btn btn-xs btn-danger" role="button" data-action="remove">Delete</a>
+	</td>
+</tr>

@@ -1,0 +1,29 @@
+<header class="intro-header" style="background-image: url('<%= home.imageUrl %>')">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="site-heading">
+          <h1><%= home.title %></h1>
+          <hr class="small">
+          <span class="subheading"><%= home.subtitle %></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <%- partial('partials/post-list.ejs')%>
+      
+      <!-- Pager -->
+      <ul class="pager">
+        <li class="next">
+          <a href="#" data-action="paginate">Older Posts &rarr;</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<hr>

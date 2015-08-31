@@ -1,0 +1,63 @@
+<form action="/private/post/edit/<%= post.id %>" method="POST" class="col-md-8" enctype="multipart/form-data">
+	<% if(message.length) { %>
+		<p class="bg-danger"><%= message %></p>
+	<% } %>
+	<div class="form-group">
+		<label for="title">Title</label>
+		<input type="text" class="form-control" name="title" placeholder="Title..." value="<%= post.title %>">
+	</div>
+	<div class="form-group">
+		<label for="subtitle">Subtitle</label>
+		<input type="text" class="form-control" name="subtitle" placeholder="Subtitle..." value="<%= post.subtitle %>">
+	</div>
+	<div class="form-group">
+		<label for="image">Header Image</label>
+		<input type="file" class="form-control" name="header" placeholder="Image...">
+	</div>
+	<div class="form-group">
+		<label for="image">Post</label>
+		<p class="bg-info">
+			It is not possible to paste a local file (like an image) directly to a website located on the server. This issue is related to the security model of the Internet browsers.
+			If you want to add images to your document, you need to upload them to a server first. You can upload them to a server manually and then insert them using the Insert Image feature, giving the URL of the image. After images uploaded URL will be listed below
+		</p>
+		<% if(imageUrls) {%>
+			<ul class="bg-success">
+				<% _.each(imageUrls, function(url) { %>
+				 <li><%= url %></li>
+				<% }) %>
+			</ul>
+		<% } %>
+		<textarea name="body" id="post" rows="10"><%= post.body %></textarea>
+		<script>
+			window.onload = function() {
+				CKEDITOR.replace('post');
+			};
+		</script>
+	</div>
+	<div class="form-group">
+		<label>Currently Uploaded Images</label>
+		<ul class="image-list row">
+			<% _.each(post.imageUrls, function(url) { %>
+				<li class="col-md-3">
+					<div class="thumbnail">
+						<img src="<%= url %>" alt="">
+						<a href="/private/post/<%= post.id %>/remove_image" class="close" aria-label="Close" data-action="remove"><span aria-hidden="true">&times;</span></a>
+					</div>
+				</li>
+			<% }) %>
+		</ul>
+	</div>
+	
+	<div class="form-group">
+		<button class="btn btn-primary" type="submit">Save</button>
+	</div>
+</form>
+<form action="/private/post/upload" method="post" class="col-md-8" enctype="multipart/form-data">
+	<div class="form-group">
+		<label for="images">Images</label>
+		<input type="file" class="form-control" placeholder="Image..." name="images" multiple="multiple">
+	</div>
+	<div class="form-group">
+		<button class="btn btn-primary" type="submit">Upload</button>
+	</div>
+</form>

@@ -1,0 +1,20 @@
+<form action="/private" method="post" class="col-md-8" enctype="multipart/form-data">
+	<% if(message.length) { %>
+		<p class="bg-danger"><%= message %></p>
+	<% } %>
+	<div class="form-group">
+		<label for="title">Main Title</label>
+		<input type="text" class="form-control" placeholder="Title for heading..." name="title" <% if(data){ %> value="<%= data.title %>" <% } %>>
+	</div>
+	<div class="form-group">
+		<label for="subtitle">Main Subtitle</label>
+		<input type="text" class="form-control" placeholder="Subtitle for heading..." name="subtitle" <% if(data){ %> value="<%= data.subtitle %>" <% } %>>
+	</div>
+	<div class="form-group">
+		<label for="image">Header Image</label>
+		<input type="file" class="form-control" placeholder="Image..." name="image">
+	</div>
+	<div class="form-group">
+		<button class="btn btn-primary" type="submit">Save</button>
+	</div>
+</form>

@@ -1,0 +1,21 @@
+<nav>
+  <ul class="nav nav-pills nav-stacked">
+    <% if(session.me.admin) { %>
+      <li <% if(path === '/private/home') { %> class="active" <% } %>>
+        <a href="/private/home">Home Page</a>
+      </li>
+      <li <% if(path === '/private/about') { %> class="active" <% } %>>
+        <a href="/private/about">About Page</a>
+      </li>
+      <li <% if(path === '/user') { %> class="active" <% } %>>
+        <a href="/user">Manage Users</a>
+      </li>
+    <% } %>  
+    <li <% if(path === '/private/posts') { %> class="active" <% } %>>
+      <a href="/private/posts">Posts</a>
+    </li>
+    <li>
+      <a href="/user/signout">Log Out</a>
+    </li>
+  </ul>
+</nav>
