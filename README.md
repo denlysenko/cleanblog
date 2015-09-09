@@ -1,4 +1,4 @@
-# blog
+# blog on sails.js
 
 Backend is made on Sails.js using Socket.IO. Layout is taken from here
 
